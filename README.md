@@ -10,7 +10,7 @@
 4. Run the command `dotnet run`
 5. Provide the distance in Mega Lights
 
-## How to run the unit testing
+## How to run the unit test
 1. Go to the folder `*\KneatSoftware\Tests\UnitTests` in the project
 2. Run the command `dotnet test`
 
