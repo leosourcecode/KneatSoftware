@@ -23,8 +23,9 @@
 
 * Hours is (distance / velocity in megalights) and consumable Hours is the hours calculated by the consumable of the starship.
 
-Example:
+Formula:
 `stops = (( Distance / Megalights / Consumables )`
+Example:
 `stops = ((Distance = 1000000 / megalights = 75) / (consumable = "2 months") = 1460 )`
 
 The StarshipService will get the starships from the API and for each starship will add the stops calling the MegaLightsCalculatorService. For the consumable calculation there is a interface `IHoursCalculator` that implements the proper type via Factory to the concrete class.
