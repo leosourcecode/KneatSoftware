@@ -25,6 +25,7 @@
 
 Formula:
 `stops = (( Distance / Megalights / Consumables )`
+
 Example:
 `stops = ((Distance = 1000000 / megalights = 75) / (consumable = "2 months") = 1460 )`
 
