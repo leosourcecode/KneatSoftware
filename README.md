@@ -24,7 +24,7 @@
 * Hours is (distance / velocity in megalights) and consumable Hours is the hours calculated by the consumable of the starship.
 
 Formula:
-`stops = (( Distance / Megalights / Consumables )`
+`stops = (( Distance / Megalights) / Consumables )`
 
 Example:
 `stops = ((Distance = 1000000 / megalights = 75) / (consumable = "2 months") = 1460 )`
