@@ -55,5 +55,25 @@ namespace UnitTests.Services
             //Assert
             Assert.Equal(74, result);
         }
+
+        [Fact(DisplayName = "Should calculate the stops by Day with success")]
+        [Trait("MegaLights", "Calculate the stops")]
+        public void ShouldCalculateStopsByDayWithSuccess()
+        {
+            //Arrange
+            double hoursbyDay = 24;
+            var distanceInMegaLights = 1000000;
+            var megaLights = "100";
+            var consumables = "5 days";
+            double consumableValue = 5;
+            var time = "days";
+            _mocker.GetMock<ICosumablesService>().Setup(s => s.CalculateConsumableInHours(consumableValue, time)).Returns(hoursbyDay * consumableValue);
+
+            //Act
+            var result = _megaLightsCalculatorService.CalculateStopsByDistance(distanceInMegaLights, megaLights, consumables);
+
+            //Assert
+            Assert.Equal(83, result);
+        }
     }
 }
