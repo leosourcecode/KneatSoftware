@@ -15,20 +15,36 @@ namespace KneatSoftware
         static async Task Main(string[] args)
         {
             Console.WriteLine("Welcome to Star Wars Calculator!");
+            Console.WriteLine(string.Empty);
 
             ConfigureIoC();
 
-            Console.WriteLine("Enter the distance in mega lights (MGLT):");
+            bool continues;
+            do
+            {
 
-            var distanceInMglt = Console.ReadLine();                      
+                Console.WriteLine("Enter the distance in mega lights (MGLT):");
 
-            var starshipService = _serviceProvider.GetService<IStarshipService>();
+                var distance = Console.ReadLine();
 
-            var starships = await starshipService.GetAllStarshipsAsync(distanceInMglt.GetMegaLightsFromString());
+                var distanceInMglt = distance.IsValidValue() ? distance.GetMegaLightsFromString() : 1000000;
 
-            ShowStarShips(starships);
+                Console.WriteLine(string.Empty);
+                Console.WriteLine($"Distance in MGLT: {distanceInMglt}");
+                Console.WriteLine(string.Empty);
 
-            Console.ReadLine();
+                var starshipService = _serviceProvider.GetService<IStarshipService>();
+
+                var starships = await starshipService.GetAllStarshipsAsync(distanceInMglt);
+
+                ShowStarShips(starships);
+
+                Console.WriteLine("Would you like to continue?");
+                Console.WriteLine("Press [Y] or [N]");
+                var option = Console.ReadLine();
+                continues = option.ToLower() == "y";
+
+            } while (continues);
         }
 
         static void ShowStarShips(IEnumerable<Starship> starships)
