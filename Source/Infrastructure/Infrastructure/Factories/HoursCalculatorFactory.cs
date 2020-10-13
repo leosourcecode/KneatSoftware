@@ -17,7 +17,7 @@ namespace Infrastructure.Factories
         /// Method responsible to get the specific time calculator
         /// </summary>
         /// <param name="timeName">Type of the time</param>
-        /// <returns>IHoursCalculation</returns>
+        /// <returns>IHoursCalculator</returns>
         public IHoursCalculator GetTimeCalculator(string timeName)
         {
             switch (timeName.ToLower())
